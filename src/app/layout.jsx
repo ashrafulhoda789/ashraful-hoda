@@ -7,8 +7,8 @@ import { ToastContainer } from 'react-toastify';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Djembar | Software Engineer & Frontend Developer',
-  description: 'Premium developer portfolio featuring advanced animations and glassmorphism UI.',
+  title: 'JAMSHED | Web Developer',
+  description: 'A modern portfolio showcasing my skills in frontend development, backend integration, and interactive UI/UX design using React, Next.js, and modern web technologies.',
 };
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
           <CustomCursor />
           {children}
         </LenisProvider>
-        <ToastContainer/>
+        <ToastContainer />
       </body>
     </html>
   );
