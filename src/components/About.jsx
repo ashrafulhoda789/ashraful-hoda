@@ -19,21 +19,28 @@ export default function About() {
   // ✅ FIXED GSAP (no flicker + proper scope + no re-run issue)
   useGSAP(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.about-card', {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.25,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none', // 🔥 IMPORTANT FIX
+      gsap.fromTo(
+        '.about-card',
+        {
+          y: 40,
+          opacity: 0,
         },
-      });
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
     }, containerRef);
 
-    return () => ctx.revert(); // 🔥 cleanup (prevents flicker)
+    return () => ctx.revert();
   }, []);
 
   return (
