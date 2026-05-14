@@ -117,7 +117,7 @@ export default function Skills() {
         <div className="max-w-4xl mx-auto mt-7 grid md:grid-cols-2 gap-3 place-items-center">
 
           {/* Frontend */}
-          <div className="w-95 h-85 glass rounded-3xl p-10 border border-white/10 hover:border-indigo-500/30 transition-all duration-500">
+          <div className="w-92 h-85 glass rounded-3xl p-10 border border-white/10 hover:border-indigo-500/30 transition-all duration-500">
             <h3 className="text-3xl font-black text-center tracking-tight mb-8">
               Frontend <span className="text-indigo-400">Stack</span>
             </h3>
@@ -155,7 +155,7 @@ export default function Skills() {
           </div>
 
           {/* Backend */}
-          <div className="w-95 h-85 glass rounded-3xl p-10 border border-white/10 hover:border-indigo-500/30 transition-all duration-500">
+          <div className="w-92 h-85 glass rounded-3xl p-10 border border-white/10 hover:border-indigo-500/30 transition-all duration-500">
 
             <h3 className="text-3xl font-black text-center tracking-tight mb-8">
               Backend <span className="text-indigo-400">Stack</span>
