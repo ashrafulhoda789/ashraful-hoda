@@ -14,32 +14,35 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     title: 'BookBee',
-    description: 'A premium bookstore platform with real-time inventory and elegant transitions.',
+    description:
+      'A premium bookstore platform with real-time inventory and elegant transitions.',
     tech: ['Next.js', 'React', 'BetterAuth', 'MongoDB'],
     image: '/bookbee.png',
     links: {
       live: 'https://bookbee-online-platform.vercel.app/',
-      github: 'https://github.com/ashrafulhoda789/bookbee-online-platform'
+      github: 'https://github.com/ashrafulhoda789/bookbee-online-platform',
     },
   },
   {
     title: 'Keen-Keeper',
-    description: 'Advanced productivity suite for high-performance teams and creative professionals.',
+    description:
+      'Advanced productivity suite for high-performance teams and creative professionals.',
     tech: ['React', 'Tailwind', 'DaisyUI'],
     image: '/keen-keeper.png',
     links: {
       live: 'https://keen-keeper-project-ph.netlify.app/',
-      github: 'https://github.com/ashrafulhoda789/keen-keeper-project-ph'
+      github: 'https://github.com/ashrafulhoda789/keen-keeper-project-ph',
     },
   },
   {
     title: 'English Janala',
-    description: 'Interactive language learning experience featuring immersive speech recognition.',
+    description:
+      'Interactive language learning experience featuring immersive speech recognition.',
     tech: ['JavaScript', 'Tailwind CSS', 'DaisyUI'],
     image: '/english-janala.png',
     links: {
       live: 'https://ashrafulhoda789.github.io/English-Janala-Project-PH/',
-      github: 'https://github.com/ashrafulhoda789/English-Janala-Project-PH'
+      github: 'https://github.com/ashrafulhoda789/English-Janala-Project-PH',
     },
   },
 ];
@@ -51,22 +54,30 @@ export default function Projects() {
   useGSAP(() => {
     if (!sliderRef.current || !containerRef.current) return;
 
-    const sections = gsap.utils.toArray('.project-card');
+    const getScrollAmount = () => {
+      // extra buffer prevents bottom cut issue
+      const extra = 80;
+      return (
+        sliderRef.current.scrollWidth -
+        window.innerWidth +
+        extra
+      );
+    };
 
-    gsap.to(sections, {
-      x: () => -(sliderRef.current.scrollWidth - window.innerWidth),
+    const tween = gsap.to(sliderRef.current, {
+      x: () => -getScrollAmount(),
       ease: 'none',
+    });
 
-      scrollTrigger: {
-        trigger: containerRef.current,
-        pin: true,
-        scrub: 1,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-
-        end: () =>
-          "+=" + (sliderRef.current.scrollWidth - window.innerWidth),
-      },
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: 'top top',
+      end: () => '+=' + getScrollAmount(),
+      pin: true,
+      scrub: 1,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+      animation: tween,
     });
 
     return () => ScrollTrigger.killAll();
@@ -78,22 +89,26 @@ export default function Projects() {
       id="projects"
       className="bg-black/40 overflow-hidden"
     >
-      <div className="min-h-screen flex items-center">
+      {/* TITLE (NOT PINNED → FIXED ISSUE) */}
+      <div className="px-6 md:px-32 pt-20 pb-10">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter">
+          Projects
+        </h2>
+        <p className="text-gray-500 mt-4 text-base sm:text-lg">
+          Recent Projects.
+        </p>
+      </div>
 
-        {/* Slider */}
+      {/* PIN AREA */}
+      <div className="relative">
         <div
           ref={sliderRef}
-          className="flex gap-6 md:gap-12 px-6 md:px-32 w-max"
+          className="flex gap-6 md:gap-12 pl-6 md:pl-32 pr-6 md:pr-32 w-max items-stretch"
         >
-
           {/* Intro */}
-          <div className="w-[260px] sm:w-[300px] md:min-w-[400px] flex flex-col justify-center">
-            <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 md:mb-8">
-              Projects
-            </h2>
-
-            <p className="text-base sm:text-lg md:text-xl text-gray-500 font-medium">
-              Recent Projects.
+          <div className="w-[260px] sm:w-[300px] md:min-w-[400px] shrink-0 flex flex-col justify-center">
+            <p className="text-gray-500 font-medium">
+              Scroll to explore →
             </p>
           </div>
 
@@ -101,7 +116,7 @@ export default function Projects() {
           {projects.map((project, i) => (
             <div
               key={i}
-              className="project-card w-[280px] sm:w-[350px] md:w-[600px]"
+              className="project-card w-[280px] sm:w-[350px] md:w-[600px] shrink-0"
             >
               <GlassCard className="p-0 h-full overflow-hidden flex flex-col group">
 
@@ -116,10 +131,9 @@ export default function Projects() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 sm:p-8 md:p-12 space-y-6 md:space-y-8 flex-1 flex flex-col">
-
+                <div className="p-6 sm:p-8 md:p-12 space-y-6 flex-1 flex flex-col">
                   <div>
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
                       {project.title}
                     </h3>
 
@@ -141,8 +155,7 @@ export default function Projects() {
                   </div>
 
                   {/* Links */}
-                  <div className="flex flex-wrap gap-4 sm:gap-6 pt-2 mt-auto">
-
+                  <div className="flex flex-wrap gap-4 pt-2 mt-auto">
                     <MagneticButton strength={20}>
                       <a
                         href={project.links.live}
@@ -164,29 +177,24 @@ export default function Projects() {
                         Source Code <Code size={16} />
                       </a>
                     </MagneticButton>
-
                   </div>
                 </div>
               </GlassCard>
             </div>
           ))}
 
-          {/* End Card */}
-          <div className="w-[260px] sm:w-[300px] md:min-w-[400px] flex flex-col justify-center items-center text-center">
+          {/* END CARD (FIXED VISIBILITY) */}
+          <div className="w-[260px] sm:w-[300px] md:min-w-[400px] shrink-0 flex flex-col justify-center items-center text-center">
             <p className="text-gray-500 font-bold uppercase tracking-widest mb-4 text-xs sm:text-sm">
               Interested in more?
             </p>
 
             <MagneticButton strength={30}>
-              <a
-                href="https://github.com/ashrafulhoda789/"
-                className="text-xl sm:text-2xl md:text-3xl font-black hover:text-indigo-500 transition-all"
-              >
+              <a href='https://github.com/ashrafulhoda789/' className="text-xl sm:text-2xl md:text-3xl font-black hover:text-indigo-500 transition-all">
                 Github Archive →
               </a>
             </MagneticButton>
           </div>
-
         </div>
       </div>
     </section>
