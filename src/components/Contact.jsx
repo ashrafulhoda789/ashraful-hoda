@@ -6,6 +6,7 @@ import GlassCard from './ui/glass-card';
 import MagneticButton from './ui/magnetic-button';
 import { Send, Mail, MapPin, ArrowUpRight } from 'lucide-react';
 import { toast } from 'react-toastify';
+import { FaPhoneAlt } from 'react-icons/fa';
 
 export default function Contact() {
   const socials = [
@@ -81,6 +82,24 @@ export default function Contact() {
                     className="text-lg sm:text-xl md:text-2xl font-bold hover:text-indigo-400 transition-colors duration-300"
                   >
                     asrafulhoda789@outlook.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start sm:items-center gap-4 sm:gap-6 group cursor-pointer">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 glass rounded-2xl flex items-center justify-center group-hover:bg-indigo-500 transition-all duration-500">
+                  <FaPhoneAlt className="text-indigo-400 group-hover:text-white" />
+                </div>
+
+                <div>
+                  <p className="text-xs sm:text-sm font-bold text-gray-500 uppercase tracking-widest mb-1">
+                    Mobile
+                  </p>
+                  <a
+                    href="tel:01818299406"
+                    className="text-lg sm:text-xl md:text-2xl font-bold hover:text-indigo-400 transition-colors duration-300"
+                  >
+                    01818299406
                   </a>
                 </div>
               </div>
