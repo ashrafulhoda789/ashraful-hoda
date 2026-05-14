@@ -14,7 +14,7 @@ const milestones = [
 
   {
     title: 'Higher Secondary Certificate (HSC)',
-    school: "Ramu Govt. College, Cox&apos;s Bazar",
+    school: "Ramu Govt. College, Cox's Bazar",
     gpa: '5.00',
     passingYear: '2021',
     tags: ['HSC', 'Science'],

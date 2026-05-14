@@ -86,7 +86,7 @@ export default function About() {
             </h2>
 
             <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed font-medium">
-              I&apos;m Ashraful Hoda Jamshed, a software engineering student passionate about
+              I&apos;m Ashraful Hoda Jamshed, a computer science & engineering student passionate about
               building clean, responsive, and scalable web applications. I specialize in React.js
               and Next.js while improving backend and DSA skills.
             </p>

@@ -114,7 +114,7 @@ export default function Skills() {
             My Technical Level
           </p>
         </div>
-        <div className="max-w-6xl mx-auto mt-7 grid md:grid-cols-2 gap-3 place-items-center">
+        <div className="max-w-4xl mx-auto mt-7 grid md:grid-cols-2 gap-3 place-items-center">
 
           {/* Frontend */}
           <div className="w-95 h-85 glass rounded-3xl p-10 border border-white/10 hover:border-indigo-500/30 transition-all duration-500">
