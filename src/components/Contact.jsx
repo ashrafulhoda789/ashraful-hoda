@@ -165,6 +165,14 @@ export default function Contact() {
                 </label>
               </div>
 
+              <div>
+                <input
+                  type="hidden"
+                  name="time"
+                  value={new Date().toLocaleString()}
+                />
+              </div>
+
               {/* Message */}
               <div className="relative">
                 <textarea

@@ -2,10 +2,14 @@
 
 import { useRef } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@/hooks/use-gsap';
+
 import GlassCard from './ui/glass-card';
 import MagneticButton from './ui/magnetic-button';
 import { ExternalLink, Code } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
@@ -50,26 +54,36 @@ export default function Projects() {
     const sections = gsap.utils.toArray('.project-card');
 
     gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
+      x: () => -(sliderRef.current.scrollWidth - window.innerWidth),
       ease: 'none',
+
       scrollTrigger: {
         trigger: containerRef.current,
         pin: true,
         scrub: 1,
-        snap: 1 / (sections.length - 1),
-        end: () => "+=" + sliderRef.current?.offsetWidth,
-      }
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+
+        end: () =>
+          "+=" + (sliderRef.current.scrollWidth - window.innerWidth),
+      },
     });
+
+    return () => ScrollTrigger.killAll();
   }, []);
 
   return (
-    <section ref={containerRef} id="projects" className="bg-black/40 overflow-hidden">
-
+    <section
+      ref={containerRef}
+      id="projects"
+      className="bg-black/40 overflow-hidden"
+    >
       <div className="min-h-screen flex items-center">
 
+        {/* Slider */}
         <div
           ref={sliderRef}
-          className="flex gap-6 md:gap-12 px-6 md:px-32"
+          className="flex gap-6 md:gap-12 px-6 md:px-32 w-max"
         >
 
           {/* Intro */}
@@ -157,7 +171,7 @@ export default function Projects() {
             </div>
           ))}
 
-          {/* End card */}
+          {/* End Card */}
           <div className="w-[260px] sm:w-[300px] md:min-w-[400px] flex flex-col justify-center items-center text-center">
             <p className="text-gray-500 font-bold uppercase tracking-widest mb-4 text-xs sm:text-sm">
               Interested in more?
@@ -165,7 +179,7 @@ export default function Projects() {
 
             <MagneticButton strength={30}>
               <a
-                href="#"
+                href="https://github.com/ashrafulhoda789/"
                 className="text-xl sm:text-2xl md:text-3xl font-black hover:text-indigo-500 transition-all"
               >
                 Github Archive →
