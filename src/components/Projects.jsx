@@ -13,6 +13,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
+    title: 'Wanderlast',
+    description:
+      'A modern travel and destination booking web application where users can explore, add, manage, and book travel destinations with personalized user profiles and secure authentication.',
+    tech: ['Node.js','Express.js', 'MongoDB', 'JWT', 'Next.js', 'React', 'BetterAuth'],
+    image: '/wanderlast.jpg',
+    links: {
+      live: 'https://wonderlust-brown.vercel.app/',
+      github: 'https://github.com/ashrafulhoda789/wanderlust-discover-adventure',
+    },
+  },
+  {
     title: 'BookBee',
     description:
       'A premium bookstore platform with real-time inventory and elegant transitions.',
@@ -34,17 +45,7 @@ const projects = [
       github: 'https://github.com/ashrafulhoda789/keen-keeper-project-ph',
     },
   },
-  {
-    title: 'English Janala',
-    description:
-      'Interactive language learning experience featuring immersive speech recognition.',
-    tech: ['JavaScript', 'Tailwind CSS', 'DaisyUI'],
-    image: '/english-janala.png',
-    links: {
-      live: 'https://ashrafulhoda789.github.io/English-Janala-Project-PH/',
-      github: 'https://github.com/ashrafulhoda789/English-Janala-Project-PH',
-    },
-  },
+
 ];
 
 export default function Projects() {
