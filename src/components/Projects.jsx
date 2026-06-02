@@ -13,10 +13,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
+    title: 'DocAppoint',
+    description:
+      'A healthcare appointment booking system that allows patients to schedule doctor visits, manage appointments, and access healthcare services through an intuitive and responsive web interface.',
+    tech: ['Node.js', 'Express.js', 'MongoDB', 'JWT', 'Next.js', 'React', 'BetterAuth'],
+    image: '/docAppoint.jpg',
+    links: {
+      live: 'https://doc-appoint-one.vercel.app/',
+      github: 'https://github.com/ashrafulhoda789/docAppoint',
+    },
+  },
+  {
     title: 'Wanderlast',
     description:
       'A modern travel and destination booking web application where users can explore, add, manage, and book travel destinations with personalized user profiles and secure authentication.',
-    tech: ['Node.js','Express.js', 'MongoDB', 'JWT', 'Next.js', 'React', 'BetterAuth'],
+    tech: ['Node.js', 'Express.js', 'MongoDB', 'JWT', 'Next.js', 'React', 'BetterAuth'],
     image: '/wanderlast.jpg',
     links: {
       live: 'https://wonderlust-brown.vercel.app/',
