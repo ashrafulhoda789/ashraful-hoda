@@ -17,7 +17,7 @@ const projects = [
     description:
       'A healthcare appointment booking system that allows patients to schedule doctor visits, manage appointments, and access healthcare services through an intuitive and responsive web interface.',
     tech: ['Node.js', 'Express.js', 'MongoDB', 'JWT', 'Next.js', 'React', 'BetterAuth'],
-    image: '/docAppoint.jpg',
+    image: '/docAppoint.png',
     links: {
       live: 'https://doc-appoint-one.vercel.app/',
       github: 'https://github.com/ashrafulhoda789/docAppoint',
