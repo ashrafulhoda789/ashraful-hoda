@@ -34,6 +34,6 @@ This project showcases my skills, projects, and experience as a developer.
 # 👨‍💻Author
 ## Ashraful Hoda Jamshed
 Computer Science & Engineering (CSE) Student  
-Frontend Web Developer
+Full-Stack Web Developer
 
 ---
