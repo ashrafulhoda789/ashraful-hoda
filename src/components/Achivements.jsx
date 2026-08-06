@@ -33,7 +33,7 @@ export default function Achievements() {
     ];
 
     return (
-        <section id="achievements" className="relative overflow-hidden  px-6 py-24 md:px-10">
+        <section id="achievements" className="relative overflow-hidden  px-6 py-10 md:px-10">
             <div className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full" />
 
             <div className="relative z-10 mx-auto max-w-7xl">
