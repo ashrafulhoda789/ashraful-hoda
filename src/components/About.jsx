@@ -16,7 +16,7 @@ export default function About() {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
-  // ✅ FIXED GSAP (no flicker + proper scope + no re-run issue)
+  //  FIXED GSAP (no flicker + proper scope + no re-run issue)
   useGSAP(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(

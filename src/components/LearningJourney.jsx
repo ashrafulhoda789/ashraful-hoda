@@ -4,12 +4,13 @@ import GlassCard from './ui/glass-card';
 import { motion } from 'framer-motion';
 
 const milestones = [
+
   {
-    title: 'Secondary School Certificate (SSC)',
-    school: "Baitush Sharaf Jabbaria Academy, Cox's Bazar",
-    gpa: '4.78',
-    passingYear: '2019',
-    tags: ['SSC', 'Science'],
+    title: 'B.Sc in CSE',
+    school: 'BGC Trust University Bangladesh',
+    gpa: '3.75(Running)',
+    passingYear: '2023 - Present',
+    tags: ['Computer Science & Engineering', 'University'],
   },
 
   {
@@ -20,13 +21,7 @@ const milestones = [
     tags: ['HSC', 'Science'],
   },
 
-  {
-    title: 'B.Sc in CSE',
-    school: 'BGC Trust University Bangladesh',
-    gpa: '3.75(Running)',
-    passingYear: '2023 - Present',
-    tags: ['Computer Science & Engineering', 'University'],
-  },
+
 ];
 
 export default function LearningJourney() {
@@ -38,7 +33,7 @@ export default function LearningJourney() {
             <span className="text-gradient">Qualification</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl font-medium">
-            My Personal Journey
+            My Educational Journey
           </p>
         </div>
 

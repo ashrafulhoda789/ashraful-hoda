@@ -99,10 +99,10 @@ export default function Projects() {
     <section
       ref={containerRef}
       id="projects"
-      className="bg-black/40 overflow-hidden"
+      className=" overflow-hidden"
     >
       {/* TITLE (NOT PINNED → FIXED ISSUE) */}
-      <div className="px-6 md:px-32 pt-20 pb-10">
+      <div className="px-6 md:px-32 pt-20 pb-10 ">
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter">
           Projects
         </h2>

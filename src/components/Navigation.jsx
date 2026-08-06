@@ -11,7 +11,9 @@ const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Experience', href: '#experience-work' },
   { name: 'Education', href: '#experience' },
+  { name: 'Achivements', href: '#achievements' },
 ];
 
 export default function Navigation() {
