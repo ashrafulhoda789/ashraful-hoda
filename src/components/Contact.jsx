@@ -99,7 +99,7 @@ export default function Contact() {
                     href="tel:01818299406"
                     className="text-lg sm:text-xl md:text-2xl font-bold hover:text-indigo-400 transition-colors duration-300"
                   >
-                    01818299406
+                    +8801818299406
                   </a>
                 </div>
               </div>
