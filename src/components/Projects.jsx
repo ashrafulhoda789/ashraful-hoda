@@ -12,6 +12,7 @@ import GlassCard from './ui/glass-card';
 import MagneticButton from './ui/magnetic-button';
 import { ExternalLink, ArrowUpRight } from 'lucide-react';
 import { projects } from '@/data/projects';
+import { BsGithub } from 'react-icons/bs';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,66 +80,99 @@ export default function Projects() {
             </p>
           </div>
 
-          {/* Projects */}
           {projects.map((project, i) => (
             <div
               key={i}
-              className="project-card w-[280px] sm:w-[340px] md:w-[420px] shrink-0"
+              className="project-card w-[300px] sm:w-[380px] md:w-[450px] shrink-0"
             >
-              {/* Card Container with onClick programmatic navigation */}
               <div
                 onClick={() => router.push(`/projects/${project.slug}`)}
-                className="block h-full cursor-pointer"
+                className="block h-full cursor-pointer group"
               >
-                <GlassCard className="p-0 h-full overflow-hidden flex flex-col group">
+                <GlassCard className="p-0 h-full overflow-hidden flex flex-col bg-zinc-900/50 border border-zinc-800/80 hover:border-indigo-500/50 transition-all duration-500 relative shadow-2xl hover:shadow-indigo-500/10">
+                  {/* Subtle Top Glow on Hover */}
+                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  {/* Image (Next.js Image Optimized) */}
-                  <div className="relative aspect-video overflow-hidden">
+                  {/* Image Container */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-zinc-950">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
 
-                    <div className="absolute top-4 right-4 flex items-center justify-center w-9 h-9 rounded-full glass opacity-0 group-hover:opacity-100 -translate-y-1 group-hover:translate-y-0 transition-all duration-300">
-                      <ArrowUpRight size={18} />
+                    {/* Quick View Icon */}
+                    <div className="absolute top-4 right-4 flex items-center justify-center w-10 h-10 rounded-full bg-zinc-900/80 border border-zinc-700/60 text-white opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-300 backdrop-blur-md">
+                      <ArrowUpRight size={18} className="group-hover:text-indigo-400 transition-colors" />
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="p-6 sm:p-8 space-y-5 flex-1 flex flex-col">
-                    <h3 className="text-2xl sm:text-3xl font-bold">
-                      {project.title}
-                    </h3>
+                  {/* Content Container */}
+                  <div className="p-6 sm:p-7 space-y-4 flex-1 flex flex-col justify-between">
+                    <div className="space-y-3">
+                      <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white group-hover:text-indigo-300 transition-colors">
+                        {project.title}
+                      </h3>
 
-                    {/* Tech */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((t) => (
+                      <p className="text-zinc-400 text-xs sm:text-sm line-clamp-2 leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* Tech Badges */}
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {project.tech.slice(0, 4).map((t) => (
                         <span
                           key={t}
-                          className="px-3 py-1.5 glass rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest text-indigo-400"
+                          className="px-2.5 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20 text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider text-indigo-300"
                         >
                           {t}
                         </span>
                       ))}
+                      {project.tech.length > 4 && (
+                        <span className="px-2 py-1 rounded-md bg-zinc-800 text-[10px] font-mono text-zinc-400">
+                          +{project.tech.length - 4}
+                        </span>
+                      )}
                     </div>
 
-                    {/* Live link */}
-                    <div className="pt-2 mt-auto">
-                      <MagneticButton strength={20}>
-                        <Link
-                          href={project.links.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="flex items-center gap-2 font-bold text-xs sm:text-sm hover:text-indigo-400 transition-colors w-fit"
-                        >
-                          Live Demo <ExternalLink size={16} />
-                        </Link>
-                      </MagneticButton>
+                    {/* Card Footer Actions */}
+                    <div className="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+                      <span className="text-xs font-semibold text-zinc-400 group-hover:text-white transition-colors">
+                        View Details →
+                      </span>
+
+                      <div className="flex items-center gap-3">
+                        {project.links?.github && (
+                          <Link
+                            href={project.links.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="p-2 rounded-lg bg-zinc-800/60 hover:bg-zinc-800 text-zinc-400 hover:text-white transition-all"
+                            title="GitHub Repository"
+                          >
+                            <BsGithub size={15} />
+                          </Link>
+                        )}
+                        {project.links?.live && (
+                          <MagneticButton strength={15}>
+                            <Link
+                              href={project.links.live}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/30 text-indigo-300 text-xs font-bold transition-all"
+                            >
+                              <span>Live</span>
+                              <ExternalLink size={13} />
+                            </Link>
+                          </MagneticButton>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </GlassCard>

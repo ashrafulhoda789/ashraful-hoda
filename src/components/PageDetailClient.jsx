@@ -80,10 +80,7 @@ export default function ProjectDetailClient({ project }) {
                         <span>Back to Projects</span>
                     </Link>
 
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-mono uppercase tracking-widest backdrop-blur-md">
-                        <Sparkles size={13} />
-                        <span>Case Study</span>
-                    </div>
+                    
                 </div>
 
                 {/* Title Header */}
