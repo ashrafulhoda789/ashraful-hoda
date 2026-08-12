@@ -1,4 +1,3 @@
-
 export default function Achievements() {
     const achievements = [
         {
@@ -7,6 +6,7 @@ export default function Achievements() {
             statLabel: "Max Rating",
             statValue: "1244",
             tags: ["498+ Solved", "Competitive Programming"],
+            link: "https://codeforces.com/profile/ashrafulhoda",
         },
         {
             title: "CodeChef",
@@ -14,6 +14,7 @@ export default function Achievements() {
             statLabel: "Max Rating",
             statValue: "1451",
             tags: ["150+ Solved", "Competitive Programming"],
+            link: "https://www.codechef.com/users/ashrafulhoda", 
         },
         {
             title: "ICPC Preliminary Contest",
@@ -28,12 +29,12 @@ export default function Achievements() {
             statLabel: "Result",
             statValue: "Runners Up",
             tags: ["2nd Place", "Programming Contest"],
-            highlight: true, 
+            highlight: true,
         },
     ];
 
     return (
-        <section id="achievements" className="relative overflow-hidden  px-6 py-10 md:px-10">
+        <section id="achievements" className="relative overflow-hidden px-6 py-10 md:px-10">
             <div className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full" />
 
             <div className="relative z-10 mx-auto max-w-7xl">
@@ -52,7 +53,19 @@ export default function Achievements() {
                                     : "rounded-2xl border border-white/10 bg-white/[0.03] p-8"
                             }
                         >
-                            <h3 className="text-2xl font-bold text-white">{item.title}</h3>
+                            {item.link ? (
+                                <a
+                                    href={item.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block text-2xl font-bold text-white transition-colors hover:text-indigo-400"
+                                >
+                                    {item.title}
+                                </a>
+                            ) : (
+                                <h3 className="text-2xl font-bold text-white">{item.title}</h3>
+                            )}
+
                             <p className="mt-2 text-slate-400">{item.subtitle}</p>
 
                             <h4 className="mt-4 text-slate-300">

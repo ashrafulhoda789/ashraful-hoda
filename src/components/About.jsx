@@ -69,7 +69,7 @@ export default function About() {
               Growing
             </p>
             <p className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-widest mt-1">
-              Developer Journey
+              Development Journey
             </p>
           </div>
 

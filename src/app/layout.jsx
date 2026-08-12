@@ -3,6 +3,7 @@ import LenisProvider from '@/lib/lenis-provider';
 import CustomCursor from '@/components/ui/custom-cursor';
 import { Inter } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
+import Navigation from '@/components/Navigation';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body suppressHydrationWarning className={`${inter.className} min-h-full flex flex-col`}>
+        <Navigation />
         <LenisProvider>
           <CustomCursor />
           {children}
