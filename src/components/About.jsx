@@ -48,7 +48,7 @@ export default function About() {
         );
       }, containerRef);
 
-      // DOM লেআউট সঠিকভাবে তৈরি হওয়ার পর ScrollTrigger রিফ্রেশ করা
+      // DOM লেআউট সঠিকভাবে তৈরি হওয়ার পর ScrollTrigger রিফ্রেশ করা
       const timer = setTimeout(() => {
         ScrollTrigger.refresh();
       }, 100);
@@ -137,24 +137,31 @@ export default function About() {
           </div>
 
           {/* STATS */}
-          <div className="pt-6 sm:pt-8 flex flex-wrap gap-6 sm:gap-12">
+          <div className="pt-6 sm:pt-8 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
 
-            <div className="glass p-4 sm:p-5 rounded-2xl border border-white/10 hover:scale-105 transition-all duration-300">
-              <p className="text-2xl sm:text-3xl font-bold text-red-400">Pupil</p>
+            <div className="glass p-4 sm:p-5 rounded-2xl border border-white/10 hover:scale-105 transition-all duration-300 min-w-[100px]">
+              <p className="text-2xl sm:text-3xl font-bold text-emerald-400">20+</p>
+              <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">
+                Projects
+              </p>
+            </div>
+
+            <div className="glass p-4 sm:p-5 rounded-2xl border border-white/10 hover:scale-105 transition-all duration-300 min-w-[100px]">
+              <p className="text-2xl sm:text-2xl font-bold text-red-400">Pupil</p>
               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">
                 Codeforces
               </p>
             </div>
 
-            <div className="glass p-4 sm:p-5 rounded-2xl border border-white/10 hover:scale-105 transition-all duration-300">
-              <p className="text-2xl sm:text-3xl font-bold text-yellow-400">2★</p>
+            <div className="glass p-4 sm:p-5 rounded-2xl border border-white/10 hover:scale-105 transition-all duration-300 min-w-[100px]">
+              <p className="text-2xl sm:text-2xl font-bold text-yellow-400">2★</p>
               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">
                 CodeChef
               </p>
             </div>
 
-            <div className="glass p-4 sm:p-5 rounded-2xl border border-white/10 hover:scale-105 transition-all duration-300">
-              <p className="text-2xl sm:text-3xl font-bold">100%</p>
+            <div className="glass p-4 sm:p-5 rounded-2xl border border-white/10 hover:scale-105 transition-all duration-300 min-w-[100px]">
+              <p className="text-2xl sm:text-2xl font-bold">100%</p>
               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">
                 Dedication
               </p>
