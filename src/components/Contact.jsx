@@ -78,10 +78,10 @@ export default function Contact() {
                     Email Me
                   </p>
                   <a
-                    href="mailto:asrafulhoda789@outlook.com"
+                    href="mailto:asrafulhoda789@gmail.com"
                     className="text-lg sm:text-xl md:text-2xl font-bold hover:text-indigo-400 transition-colors duration-300"
                   >
-                    asrafulhoda789@outlook.com
+                    asrafulhoda789@gmail.com
                   </a>
                 </div>
               </div>
