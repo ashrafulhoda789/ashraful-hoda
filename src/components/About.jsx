@@ -3,8 +3,11 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import GlassCard from './ui/glass-card';
-import { useGSAP } from '@/hooks/use-gsap';
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
   const containerRef = useRef(null);
@@ -16,32 +19,47 @@ export default function About() {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
-  //  FIXED GSAP (no flicker + proper scope + no re-run issue)
-  useGSAP(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        '.about-card',
-        {
-          y: 40,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    }, containerRef);
+  // GSAP Setup with ScrollTrigger Refresh Safety
+  useGSAP(
+    () => {
+      if (!containerRef.current) return;
 
-    return () => ctx.revert();
-  }, []);
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          '.about-card',
+          {
+            y: 40,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+              // Refresh trigger positioning on render
+              invalidateOnRefresh: true,
+            },
+          }
+        );
+      }, containerRef);
+
+      // DOM লেআউট সঠিকভাবে তৈরি হওয়ার পর ScrollTrigger রিফ্রেশ করা
+      const timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+
+      return () => {
+        clearTimeout(timer);
+        ctx.revert();
+      };
+    },
+    { scope: containerRef, dependencies: [] }
+  );
 
   return (
     <section
