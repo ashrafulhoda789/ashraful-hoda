@@ -1,5 +1,29 @@
 export const projects = [
     {
+        slug: 'legalease',
+        title: 'LegalEase',
+        description:
+            'A modern legal marketplace platform connecting users with verified lawyers, featuring multi-role authentication, direct booking, and dynamic dashboards.',
+        longDescription: [
+            'LegalEase is a responsive full-stack web application designed to bridge the gap between clients and verified legal professionals. It streamlines legal consultation by allowing users to effortlessly browse specialists, check transparent fees, and manage bookings.',
+            'The platform supports multi-role access (Users, Lawyers, and Admins), providing dedicated dashboards to handle consultation requests, schedule tracking, profile updates, and system-wide analytics efficiently.',
+            'Built with a modern decoupled stack: a Next.js App Router and HeroUI frontend for optimized client-side performance, backed by a Node.js/Express API, MongoDB database, and Better Auth for secure role-based session management.',
+        ],
+        tech: ['Next.js', 'React', 'Tailwind CSS', 'HeroUI', 'Node.js', 'Express.js', 'MongoDB', 'Better Auth'],
+        image: '/legalease-thumbnail.png',
+        features: [
+            'Multi-role secure authentication (Users, Lawyers, and Admins)',
+            'Global directory search to browse and filter lawyers by specialization',
+            'Dynamic role-based dashboards for tracking appointments and consultation requests',
+            'Comprehensive profile management and client feedback tracking',
+            'Fully responsive mobile-first UI with smooth routing and optimized performance',
+        ],
+        links: {
+            live: 'https://legalease-client-five.vercel.app',
+            github: 'https://github.com/ashrafulhoda789/legalease-client',
+        },
+    },
+    {
         slug: 'docappoint',
         title: 'DocAppoint',
         description:
