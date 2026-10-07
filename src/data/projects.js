@@ -24,6 +24,47 @@ export const projects = [
             github: 'https://github.com/ashrafulhoda789/legalease-client',
         },
     },
+
+    {
+        slug: 'future-tech-blog',
+        title: 'FutureTech ',
+        description:
+            'A modern technology blogging platform featuring articles, podcasts, resources, and an advanced admin dashboard for content management.',
+
+        longDescription: [
+            'Future Tech Blog is a full-stack content platform built to share the latest insights, trends, and educational resources in technology. Users can explore blog posts, podcasts, and curated learning materials through a clean and responsive interface.',
+            'The platform includes a powerful admin dashboard that enables administrators to manage blog articles, podcasts, resources, and other platform content efficiently without requiring direct database access.',
+            'Built with a modern web stack, the application focuses on performance, scalability, and user experience, providing seamless content consumption and streamlined content management workflows.',
+        ],
+
+        tech: [
+            'Next.js',
+            'React',
+            'Tailwind CSS',
+            'Node.js',
+            'Express.js',
+            'MongoDB',
+            'JWT Authentication'
+        ],
+
+        image: '/future-tech-thumbnail.jfif',
+
+        features: [
+            'Modern and responsive technology blogging platform',
+            'Browse and read featured technology articles and insights',
+            'Dedicated podcast section for technology discussions and interviews',
+            'Resource library for learning materials, guides, and references',
+            'Admin dashboard for managing blogs, podcasts, and resources',
+            'Secure authentication and protected admin routes',
+            'Dynamic content management with MongoDB integration',
+            'SEO-friendly architecture with optimized performance',
+        ],
+
+        links: {
+            live: 'https://future-tech-blog-website-client.vercel.app',
+            github: 'https://github.com/thenexgenix/future-tech-blog-website-client',
+        },
+    },
     {
         slug: 'docappoint',
         title: 'DocAppoint',
