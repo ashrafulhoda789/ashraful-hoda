@@ -72,7 +72,7 @@ export default function Hero() {
           
           {/* Top Row: Image in center/left with Social Icons neatly aligned on its right */}
           <div className="hero-reveal flex items-center justify-center relative px-4">
-            <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-white/15 glass shadow-2xl shadow-indigo-500/25">
+            <div className="relative w-50 h-50 rounded-full overflow-hidden border-2 border-white/15 glass shadow-2xl shadow-indigo-500/25">
               <img
                 src={'/portfolio-my-image.png'}
                 alt="Profile"
@@ -113,7 +113,7 @@ export default function Hero() {
 
             <h1 className="text-3xl font-black tracking-tighter leading-tight">
               Ashraful <br />
-              <span className="bg-gradient-to-r from-violet-400 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r ml-20 md:ml-0 from-violet-400 to-blue-500 bg-clip-text text-transparent">
                 Hoda Jamshed.
               </span>
             </h1>
@@ -183,7 +183,7 @@ export default function Hero() {
 
               <motion.h1 initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-4xl md:text-5xl font-black tracking-tighter leading-tight">
                 Ashraful  <br />
-                <span className="bg-gradient-to-r from-violet-400 to-blue-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r ml-20 lg:ml-0 from-violet-400 to-blue-500 bg-clip-text text-transparent">
                   Hoda Jamshed.
                 </span>
               </motion.h1>
